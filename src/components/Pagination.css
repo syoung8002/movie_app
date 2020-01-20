@@ -1,0 +1,36 @@
+/* paging */
+.paging {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.paging span {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.paging span a {
+    text-decoration: none;
+}
+
+.paging span.arrow:hover {
+    cursor: pointer;
+}
+
+.paging span.btn_num {
+    display: inline;
+    font-size: 16px;
+    color: #9c9c9c;
+    text-align: center;
+    line-height: 16px;
+}
+
+.paging span.btn_p.arrow {
+    display: inline;
+    padding: 30px;
+    text-align: center;
+    line-height: 16px;
+    color: #9c9c9c;
+}
+
