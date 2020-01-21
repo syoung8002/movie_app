@@ -4,6 +4,12 @@
   }
 }
 
+@media only screen and (max-width: 1000px) {
+  .movies .movie {
+    width: 100% !important;
+  }
+}
+
 .movies .movie {
   width: 45%;
   background-color: white;
@@ -50,6 +56,10 @@
   padding: 0;
   margin: 5px 0px;
   display: flex;
+}
+
+.movie .movie__summary {
+  width: 90%;
 }
 
 .movie__genres li {

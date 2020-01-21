@@ -8,10 +8,11 @@ class Home extends React.Component {
   state = {
     isLoading: true,
     movies: [],
-    pageNum: 1
+    pageNum: 1,
+    param: "like_count"
   };
 
-  getMovies = async (pageNum) => {
+  getMovies = async (pageNum, param) => {
     if(pageNum < 1) {
       pageNum = 1;
     }
@@ -25,29 +26,43 @@ class Home extends React.Component {
           page_number
         }
       }
-    } = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=like_count&page=" + pageNum);
+    } = await axios.get("https://yts-proxy.now.sh/list_movies.json?page=" + pageNum + "&sort_by=" + param);
     this.setState({ 
       movies, 
       isLoading: false, 
       movie_count: movie_count, 
-      page_number: page_number 
+      page_number: page_number,
+      param: param
     });
   }
 
+  isActive(value) {
+    return (value === this.state.param) ? "active" : "default";
+  }
+
   componentDidMount() {
-    this.getMovies(this.state.pageNum);
+    this.getMovies(this.state.pageNum, this.state.param);
   }
 
   render() {
-    const { isLoading, movies, movie_count, page_number } = this.state;
+    const { isLoading, movies, movie_count, page_number, param } = this.state;
     return (
-      <section className="container">
+      <div className="container">
         {isLoading ? (
             <div className="loader">
               <span className="loader_text">Loading...</span>
             </div> 
         ) : (
           <>
+          <div className="sort_by">
+            <span>sort by</span>
+            <ul>
+              <li className={this.isActive("like_count")} onClick={this.getMovies.bind(this, 1, "like_count")}>Like</li>
+              <li className={this.isActive("download_count")} onClick={this.getMovies.bind(this, 1, "download_count")}>Download</li>
+              <li className={this.isActive("rating")} onClick={this.getMovies.bind(this, 1, "rating")}>Rating</li>
+              <li className={this.isActive("year")} onClick={this.getMovies.bind(this, 1, "year")}>Year</li>
+            </ul>
+          </div>
           <div className="movies">
             {movies.map(movie => (
               <Movie 
@@ -67,11 +82,12 @@ class Home extends React.Component {
               page_number={page_number}
               movie_count={movie_count}
               getMovies={this.getMovies}
+              param={param}
             />
           </div>
           </>
         )}
-      </section>
+      </div>
     );
   }
 }

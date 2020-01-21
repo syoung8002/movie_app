@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import home from "./home.png";
+import home from "../image/home.png";
+import "./Navigation.css";
 
 function Navigation() {
     return (
-        <div style={{ marginLeft: "20px", paddingTop: "15px" }}>
-            <Link to="/">
-                <img src={home} alt="HOME" title="HOME" style={{ width: "30px" }} />
+        <div className="navbar">
+            <Link to="/" className="navbar-brand">
+                <img src={home} alt="HOME" title="HOME" className="home_ico" />
             </Link>
         </div>
     );

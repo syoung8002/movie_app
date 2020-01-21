@@ -4,14 +4,14 @@ import "./Pagination.css";
 
 class Pagination extends React.Component {
     render () {
-        const { getMovies, page_number, movie_count } = this.props;
+        const { getMovies, page_number, movie_count, param } = this.props;
         return (
             <div className="paging">
-                <span className="btn_p arrow" onClick={() => getMovies(page_number-1)}>〈</span>
+                <span className="btn_p arrow" onClick={getMovies.bind(this, page_number-1, param)}>〈</span>
                 <span className="btn_num">
-                    {page_number}&nbsp;&nbsp;/&nbsp;&nbsp;{Math.ceil(movie_count/20)}
+                    {page_number}&nbsp;&nbsp;/&nbsp;&nbsp;{Math.ceil(movie_count/20, param)}
                 </span>
-                <span className="btn_p arrow" onClick={() => getMovies(page_number+1)}>〉</span>
+                <span className="btn_p arrow" onClick={getMovies.bind(this, page_number+1, param)}>〉</span>
             </div>
         );
     }

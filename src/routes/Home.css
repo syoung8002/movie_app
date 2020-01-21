@@ -48,6 +48,28 @@ body,
   }
 }
 
+.sort_by {
+  text-align: right;
+  padding-right: 1rem;
+  color: grey;
+}
+
+.sort_by ul {
+  display: inline-flex;
+}
+
+.sort_by ul li {
+  list-style-type: none;
+  float: right;
+  padding: 0 .7rem;
+  cursor: pointer;
+}
+
+.sort_by ul li.active,
+.sort_by ul li:hover {
+  font-weight: bold;
+} 
+
 .paging_area {
   padding-bottom: 50px;
 }
