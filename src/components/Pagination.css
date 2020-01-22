@@ -2,35 +2,37 @@
 .paging {
     position: relative;
     width: 100%;
+}
+
+.paging table td {
+    cursor: pointer;
+    padding: .2em .5em;
+    border: 2px solid #9c9c9c;
+    border-radius: 10px;
+}
+
+.btn_p {
+    font-size: 14px;
+    color: #8a8a8a;
+}
+
+.btn_num {
+    font-size: 16px;
+    color: #8a8a8a;
     text-align: center;
-}
-
-.paging span {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.paging span a {
-    text-decoration: none;
-}
-
-.paging span.arrow:hover {
     cursor: pointer;
 }
 
-.paging span.btn_num {
-    display: inline;
-    font-size: 16px;
-    color: #9c9c9c;
-    text-align: center;
-    line-height: 16px;
+.paging table tr td:hover,
+.btn_num.on {
+    background-color: #8a8a8a;
+    color: #ffffff;
 }
 
-.paging span.btn_p.arrow {
-    display: inline;
-    padding: 30px;
+.arrow {
     text-align: center;
-    line-height: 16px;
-    color: #9c9c9c;
+    color: #8a8a8a;
+    font-weight: bold;
 }
+
 

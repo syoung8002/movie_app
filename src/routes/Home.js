@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import Movie from "../components/Movie";
 import Pagination from "../components/Pagination";
 import "./Home.css";
 
-class Home extends React.Component {
+class Home extends Component {
   state = {
     isLoading: true,
     movies: [],
@@ -55,13 +55,17 @@ class Home extends React.Component {
         ) : (
           <>
           <div className="sort_by">
-            <span>sort by</span>
-            <ul>
-              <li className={this.isActive("like_count")} onClick={this.getMovies.bind(this, 1, "like_count")}>Like</li>
-              <li className={this.isActive("download_count")} onClick={this.getMovies.bind(this, 1, "download_count")}>Download</li>
-              <li className={this.isActive("rating")} onClick={this.getMovies.bind(this, 1, "rating")}>Rating</li>
-              <li className={this.isActive("year")} onClick={this.getMovies.bind(this, 1, "year")}>Year</li>
-            </ul>
+            <table>
+              <tbody>
+                <tr>
+                  <th>정렬 기준</th>
+                  <td className={this.isActive("like_count")} onClick={this.getMovies.bind(this, 1, "like_count")}>Like</td>
+                  <td className={this.isActive("download_count")} onClick={this.getMovies.bind(this, 1, "download_count")}>Download</td>
+                  <td className={this.isActive("rating")} onClick={this.getMovies.bind(this, 1, "rating")}>Rating</td>
+                  <td className={this.isActive("year")} onClick={this.getMovies.bind(this, 1, "year")}>Year</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div className="movies">
             {movies.map(movie => (
