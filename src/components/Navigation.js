@@ -5,7 +5,7 @@ import "./Navigation.css";
 
 function Navigation() {
     return (
-        <div id="nav" className="navbar">
+        <div className="navbar">
             <Link to="/" className="navbar-brand">
                 <img src={home} alt="HOME" title="HOME" className="home_ico" />
             </Link>
